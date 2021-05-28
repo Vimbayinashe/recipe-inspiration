@@ -2,6 +2,7 @@
 <template>
   <div class="container">
     <div>
+      <Navbar />
       <Logo />
       <h1 class="title">final-project</h1>
       <div class="links">
@@ -44,6 +45,7 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
 export default {
   async asyncData({ $axios }) {
     const allIngredients = $axios.$get('/list.php?i=list')
@@ -58,6 +60,9 @@ export default {
       random,
     }
   },
+  components: {
+    Navbar
+  }
 }
 </script>
 
