@@ -32,12 +32,10 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    // eslint-disable-next-line prettier/prettier
     const random = await $axios.$get('/random.php')
-    // console.log(random);
+    console.log(random)
 
     return {
-      // eslint-disable-next-line prettier/prettier
       random
     }
   },
