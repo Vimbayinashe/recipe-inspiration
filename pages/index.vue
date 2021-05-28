@@ -23,7 +23,21 @@
         </a>
       </div>
       <div>
-        {{ random }}
+        <ol>
+          <li :key="category.idCategory" v-for="category in categories">
+            {{ category.strCategory }}
+          </li>
+        </ol>
+      </div>
+      <div>
+        {{ categories[0] }}
+      </div>
+      <div>
+        <ol>
+          <li :key="area.strArea" v-for="area in areas">
+            {{ area.strArea }}
+          </li>
+        </ol>
       </div>
     </div>
   </div>
@@ -32,11 +46,16 @@
 <script>
 export default {
   async asyncData({ $axios }) {
+    const allIngredients = $axios.$get('/list.php?i=list')
+    const areas = await $axios.$get('/list.php?a=list')
+    const categories = await $axios.$get('/categories.php')
     const random = await $axios.$get('/random.php')
-    console.log(random)
 
     return {
-      random
+      allIngredients: allIngredients.meals,
+      areas: areas.meals,
+      categories: categories.categories,
+      random,
     }
   },
 }
