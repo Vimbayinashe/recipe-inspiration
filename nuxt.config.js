@@ -32,11 +32,25 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@bootstrap-vue/nuxt',
+    'bootstrap-vue/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://www.themealdb.com/api/json/v1/1',
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL,
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

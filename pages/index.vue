@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 <template>
   <div class="container">
     <div>
@@ -21,16 +22,30 @@
           GitHub
         </a>
       </div>
+      <div>
+        {{ random }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $axios }) {
+    // eslint-disable-next-line prettier/prettier
+    const random = await $axios.$get('/random.php')
+    // console.log(random);
+
+    return {
+      // eslint-disable-next-line prettier/prettier
+      random
+    }
+  },
+}
 </script>
 
 <style>
-.container {
+/* .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -59,5 +74,5 @@ export default {}
 
 .links {
   padding-top: 15px;
-}
+} */
 </style>
