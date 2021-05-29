@@ -4,7 +4,7 @@
     <div>
       <Navbar />
       <Logo />
-      <h1 class="title">final-project</h1>
+      <h1 class="title">What's cooking?</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"

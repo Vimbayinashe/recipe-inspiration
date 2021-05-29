@@ -35,6 +35,11 @@ export default {
     'bootstrap-vue/nuxt',
   ],
 
+  bootstrapVue: {
+    // components: ['BIcon', 'BIconHouseFill', 'BIconSearch']
+    icons: true
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://www.themealdb.com/api/json/v1/1',
