@@ -14,7 +14,7 @@
       <b-collapse id="options" is-nav>
         <b-navbar-nav class="ml-auto">
 
-          <b-nav-item-dropdown class="mx-2" right text="Dinner">
+          <b-nav-item-dropdown class="mx-2 mx-md-0" right text="Dinner">
             <b-dropdown-item 
               :key="option" 
               href="#" 
@@ -24,7 +24,7 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-item-dropdown right text="Other Meals">
+          <b-nav-item-dropdown class="mx-2 mx-md-0" right text="Other Meals">
             <b-dropdown-item 
               :key="option" 
               href="#" 
@@ -33,7 +33,7 @@
               {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown right text="European">
+          <b-nav-item-dropdown class="mx-2 mx-md-0" right text="European">
             <b-dropdown-item 
               :key="option" 
               href="#" 
@@ -42,7 +42,7 @@
               {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown right text="Asian">
+          <b-nav-item-dropdown class="mx-2 mx-md-0" right text="Asian">
             <b-dropdown-item 
               :key="option" 
               href="#" 
@@ -51,7 +51,7 @@
               {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown right text="International">
+          <b-nav-item-dropdown class="mx-2 mx-md-0" right text="International">
             <b-dropdown-item 
               :key="option" 
               href="#" 
@@ -61,7 +61,7 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-form>
+          <b-nav-form class="ml-4 ml-md-3 ml-sm-0">
             <b-form-input placeholder="Search" size="sm"/>
             <b-button size="sm" variant="light">
               <b-icon aria-hidden flip-h icon="search" variant="info" />
@@ -96,6 +96,17 @@ export default {
 </script>
 
 <style scoped>
+.form-inline > input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  width: 10em;
+}
+
+.form-inline > .btn {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
 #options >>> .nav-link {
   color: white;
 }
