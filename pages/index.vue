@@ -2,7 +2,7 @@
 <template>
   <div class="container">
     <div>
-      <Navbar />
+      <Navbar :areas="areas" :categories="categories" />
       <Logo />
       <h1 class="title">What's cooking?</h1>
       <div class="links">
