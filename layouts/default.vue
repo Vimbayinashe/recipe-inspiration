@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navbar />
     <Nuxt />
     <div class="bg-info fixed-bottom mt-4 py-2">
       <footer class="container">
@@ -8,6 +9,15 @@
     </div>
   </div>
 </template>
+
+<script>
+import Navbar from '@/components/Navbar'
+export default {
+  components: {
+    Navbar
+  }
+}
+</script>
 
 <style>
 html {

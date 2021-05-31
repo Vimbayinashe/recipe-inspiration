@@ -18,51 +18,56 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Dinner">
             <b-dropdown-item 
-              :key="option.idCategory" 
+              @click="openCategory(option)"
+              :key="option" 
               href="#" 
-              v-for="option in dinnerOptions"
+              v-for="option in dinner"
             >
-              {{ option.strCategory }}
+              {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Other Meals">
             <b-dropdown-item 
-              :key="option.idCategory" 
+              @click="openCategory(option)"
+              :key="option" 
               href="#" 
-              v-for="option in otherMealOptions"
+              v-for="option in otherMeals"
             >
-              {{ option.strCategory }}
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown class="mx-2 mx-md-0" text="European">
-            <b-dropdown-item 
-              :key="option.strArea" 
-              href="#" 
-              v-for="option in europeanOptions"
-            >
-              {{ option.strArea }}
+              {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Asian">
             <b-dropdown-item 
-              :key="option.strArea" 
+              @click="openCategory(option)"
+              :key="option" 
               href="#" 
-              v-for="option in asianOptions"
+              v-for="option in asian"
             >
-              {{ option.strArea }}
+              {{ option }}
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+
+          <b-nav-item-dropdown class="mx-2 mx-md-0" text="European">
+            <b-dropdown-item 
+              @click="openCategory(option)"
+              :key="option" 
+              href="#" 
+              v-for="option in european"
+            >
+              {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="International">
             <b-dropdown-item 
-              :key="option.strArea" 
+              @click="openCategory(option)"
+              :key="option" 
               href="#" 
-              v-for="option in internationalOptions"
+              v-for="option in international"
             >
-              {{ option.strArea }}
+              {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
@@ -84,78 +89,56 @@
 export default {
   data() {
     return {
-      asianOptions: [],
-      dinnerOptions: [],
-      europeanOptions: [],
-      internationalOptions: [],
-      otherMealOptions: []
+      asian: [
+        "Indian",
+        "Japanese",
+        "Malaysian",
+        "Chinese",
+        "Thai",
+        "Vietnamese"
+      ],
+      dinner: [
+        "Beef",
+        "Chicken",
+        "Goat",
+        "Lamb",
+        "Pasta",
+        "Pork",
+        "Seafood",
+        "Vegan",
+        "Vegetarian",
+        "Miscellaneous"
+      ],
+      european: [
+        "British",
+        "Dutch",
+        "French",
+        "Greek",
+        "Irish",
+        "Italian",
+        "Polish",
+        "Portuguese",
+        "Spanish"
+      ],
+      international: [
+        "American",
+        "Mexican",
+        "Canadian",
+        "Egyptian",
+        "Jamaican",
+        "Kenyan",
+        "Moroccan",
+        "Tunisian",
+        "Russian",
+        "Turkish"
+      ],
+      otherMeals: ["Breakfast", "Dessert", "Side", "Starter"]
     }
   },
-  mounted() {
-    const asian = [
-      "Indian",
-      "Japanese",
-      "Malaysian",
-      "Chinese",
-      "Thai",
-      "Vietnamese"
-    ],
-    dinner = [
-      "Beef",
-      "Chicken",
-      "Goat",
-      "Lamb",
-      "Pasta",
-      "Pork",
-      "Seafood",
-      "Vegan",
-      "Vegetarian",
-      "Miscellaneous"
-    ],
-    european = [
-      "British",
-      "Dutch",
-      "French",
-      "Greek",
-      "Irish",
-      "Italian",
-      "Polish",
-      "Portuguese",
-      "Spanish"
-    ],
-    international = [
-      "American",
-      "Mexican",
-      "Canadian",
-      "Egyptian",
-      "Jamaican",
-      "Kenyan",
-      "Moroccan",
-      "Tunisian",
-      "Russian",
-      "Turkish"
-    ],
-    otherMeals = ["Breakfast", "Dessert", "Side", "Starter"]
-
-    if(this.categories.length > 0) {
-      this.dinnerOptions = this.categories.filter(category => (
-        dinner.includes(category.strCategory)
-      ))
-      this.otherMealOptions = this.categories.filter(category => (
-        otherMeals.includes(category.strCategory)
-      ))
-    }
-
-    if(this.areas.length > 0) {
-      this.asianOptions = this.areas.filter(area => (
-        asian.includes(area.strArea)
-      ))
-      this.europeanOptions = this.areas.filter(area => (
-        european.includes(area.strArea)
-      ))
-      this.internationalOptions = this.areas.filter(area => (
-        international.includes(area.strArea)
-      ))
+  methods: {
+    openCategory(category) {
+      console.log("open category ", category);
+      this.$router.push(`category/${category.toLowerCase()}`)
     }
   },
   props: {
