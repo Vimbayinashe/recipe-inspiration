@@ -6,9 +6,11 @@
       type="dark"
       variant="info"
     >
-      <b-navbar-brand to="/">
-        <b-icon aria-hidden="" icon="house-fill" variant="light"/>
-        <span class="sr-only">Home</span>
+      <b-navbar-brand>
+        <NuxtLink to="/">
+          <b-icon aria-hidden="" icon="house-fill" variant="light"/>
+          <span class="sr-only">Home</span>
+        </NuxtLink>
       </b-navbar-brand>
       <b-navbar-toggle target="options" />
       <b-collapse id="options" is-nav>
@@ -33,6 +35,7 @@
               {{ option.strCategory }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
+
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="European">
             <b-dropdown-item 
               :key="option.strArea" 
@@ -42,6 +45,7 @@
               {{ option.strArea }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
+
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Asian">
             <b-dropdown-item 
               :key="option.strArea" 
@@ -51,6 +55,7 @@
               {{ option.strArea }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
+
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="International">
             <b-dropdown-item 
               :key="option.strArea" 
@@ -68,6 +73,7 @@
               <span class="sr-only">Search</span>
             </b-button>
           </b-nav-form>
+
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
