@@ -1,45 +1,30 @@
 /* eslint-disable no-console */
 <template>
-  <div class="container">
+  <div>
     <div>
       <Navbar :areas="areas" :categories="categories" />
-      <Logo />
-      <h1 class="title">What's cooking?</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-      <div>
-        <ol>
-          <li :key="category.idCategory" v-for="category in categories">
-            {{ category.strCategory }}
-          </li>
-        </ol>
-      </div>
-      <div>
-        {{ categories[0] }}
-      </div>
-      <div>
-        <ol>
-          <li :key="area.strArea" v-for="area in areas">
-            {{ area.strArea }}
-          </li>
-        </ol>
-      </div>
+      <b-container>
+        <b-row>
+          <b-col>
+            <h1 class="d-block mb-4 mt-5 pt-4 text-center title">What's cooking?</h1>
+          </b-col>
+        </b-row>
+        <b-row align-h="center">
+          <b-col class="ml-md-n5" cols="auto">
+            <p class="font-italic">
+              "Find meal inspiration and delicious recipes from all around the world right here!"
+            </p>
+          </b-col>
+        </b-row>
+        <b-row align-h="center" class="my-3">
+          <b-col cols="auto">
+            <b-img alt="several types of vegetables" fluid rounded src="@/assets/images/vegetables-700.jpg" />
+          </b-col>
+        </b-row>
+
+      </b-container>
+      
+     
     </div>
   </div>
 </template>
@@ -65,36 +50,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/* .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-} */
-</style>
