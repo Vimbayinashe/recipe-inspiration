@@ -2,7 +2,6 @@
 <template>
   <div>
     <div>
-      <Navbar :areas="areas" :categories="categories" />
       <b-container>
         <b-row>
           <b-col>
@@ -23,23 +22,19 @@
         </b-row>
         <Recipe :recipe="random" />
         
-
       </b-container>     
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
 import Recipe from '@/components/Recipe'
 export default {
   async asyncData({ $axios }) {
-    const allIngredients = $axios.$get('/list.php?i=list')
+    const allIngredients = await $axios.$get('/list.php?i=list')
     const areas = await $axios.$get('/list.php?a=list')
     const categories = await $axios.$get('/categories.php')
     const random = await $axios.$get('/random.php')
-
-    console.log(random.meals[0]);
 
     return {
       allIngredients: allIngredients.meals,
@@ -49,7 +44,6 @@ export default {
     }
   },
   components: {
-    Navbar,
     Recipe
   }
 }

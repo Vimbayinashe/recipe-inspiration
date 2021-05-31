@@ -97,7 +97,8 @@
     </b-row>
     <b-row class="mt-3">
       <b-col>
-        <span class="h5">Source: </span>{{ recipe.strSource }}
+        <span class="h5">Source: </span>
+        <a :href="recipe.strSource">{{ recipe.strSource }}</a>
       </b-col>
     </b-row>
 </div>
