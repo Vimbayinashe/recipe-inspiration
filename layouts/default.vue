@@ -1,6 +1,11 @@
 <template>
   <div>
     <Nuxt />
+    <div class="bg-info mt-4 py-2">
+      <footer class="container">
+        &#169; What's cooking Inc.
+      </footer>
+    </div>
   </div>
 </template>
 

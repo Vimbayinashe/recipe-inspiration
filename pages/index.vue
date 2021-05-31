@@ -21,16 +21,17 @@
             <b-img alt="several types of vegetables" fluid rounded src="@/assets/images/vegetables-700.jpg" />
           </b-col>
         </b-row>
+        <Recipe :recipe="random" />
+        
 
-      </b-container>
-      
-     
+      </b-container>     
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import Recipe from '@/components/Recipe'
 export default {
   async asyncData({ $axios }) {
     const allIngredients = $axios.$get('/list.php?i=list')
@@ -38,15 +39,18 @@ export default {
     const categories = await $axios.$get('/categories.php')
     const random = await $axios.$get('/random.php')
 
+    console.log(random.meals[0]);
+
     return {
       allIngredients: allIngredients.meals,
       areas: areas.meals,
       categories: categories.categories,
-      random,
+      random: random.meals[0],
     }
   },
   components: {
-    Navbar
+    Navbar,
+    Recipe
   }
 }
 </script>
