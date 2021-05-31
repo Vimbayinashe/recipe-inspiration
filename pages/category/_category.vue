@@ -11,18 +11,14 @@
           :img-src="meal.strMealThumb"
           style="width: 18em;"
         >
-          <b-card-title @click="openRecipe(meal.idMeal)">
-            <NuxtLink :to="`/recipe${meal.meal.idMeal}`">
+          <b-card-title>
+            <NuxtLink :to="`/recipe/${meal.idMeal}`">
               {{ meal.strMeal }}
             </NuxtLink>
           </b-card-title>
         </b-card>
       </b-col>
     </b-row>
-    
-    <div>
-      {{ category }}
-    </div>
   </b-container>
 </template>
 
@@ -35,20 +31,20 @@ export default {
   },
   data() {
     return {
-      category: ''
+      category: '',
+      categoryType: ''
     }
   },
   async fetch(){
-    this.category = await this.$axios.$get(`/filter.php?c=${this.$route.params.category}`)
-    console.log(this.category);
-  },
-  methods: {
-    openRecipe(id) {
-      console.log("Open recipe with ID: ", id);
+    if(this.$route.query.type === "food") {
+      this.category = await this.$axios.$get(`/filter.php?c=${this.$route.params.category}`)
+    } else if (this.$route.query.type === "area") {
+      this.category = await this.$axios.$get(`/filter.php?a=${this.$route.params.category}`)
     }
   },
   mounted() {
-    console.log(this.$route.params.category);
+    console.log(this.$route.query.type);
+    this.categoryType = this.$route.query.type === "food" ? "c" : "a"
     this.$fetch()
   }
 }

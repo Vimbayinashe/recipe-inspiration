@@ -18,7 +18,7 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Dinner">
             <b-dropdown-item 
-              @click="openCategory(option)"
+              @click="openCategory(option, 'food')"
               :key="option" 
               href="#" 
               v-for="option in dinner"
@@ -29,7 +29,7 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Other Meals">
             <b-dropdown-item 
-              @click="openCategory(option)"
+              @click="openCategory(option, 'food')"
               :key="option" 
               href="#" 
               v-for="option in otherMeals"
@@ -40,7 +40,7 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Asian">
             <b-dropdown-item 
-              @click="openCategory(option)"
+              @click="openCategory(option, 'area')"
               :key="option" 
               href="#" 
               v-for="option in asian"
@@ -51,7 +51,7 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="European">
             <b-dropdown-item 
-              @click="openCategory(option)"
+              @click="openCategory(option, 'area')"
               :key="option" 
               href="#" 
               v-for="option in european"
@@ -62,7 +62,7 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="International">
             <b-dropdown-item 
-              @click="openCategory(option)"
+              @click="openCategory(option, 'area')"
               :key="option" 
               href="#" 
               v-for="option in international"
@@ -136,9 +136,12 @@ export default {
     }
   },
   methods: {
-    openCategory(category) {
+    openCategory(category, type) {
       console.log("open category ", category);
-      this.$router.push(`category/${category.toLowerCase()}`)
+      this.$router.push({
+        path: `category/${category.toLowerCase()}`,
+        query: { type }
+      })
     }
   },
   props: {
