@@ -51,6 +51,14 @@ export default {
 </script>
 
 <style scoped>
+  a {
+    color: #212529;
+  }
+
+  a:hover{
+    text-decoration: none;
+  } 
+
   .card-title {
     min-height: 56px;
   }
