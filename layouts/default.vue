@@ -1,7 +1,6 @@
 <template>
   <div>
     <Nuxt />
-    <p class="h1">hello</p>
   </div>
 </template>
 

@@ -3,16 +3,24 @@
   <div>
     <div>
       <Navbar :areas="areas" :categories="categories" />
-      <h1 class="d-block mb-4 mt-5 pt-4 title">What's cooking?</h1>
-      <p>
-        <i>
-          "Find meal inspiration and delicious recipes from all around the world right here!"
-        </i>
-      </p>
       <b-container>
-        <div>
-          {{ categories[0] }}
-        </div>
+        <b-row>
+          <b-col>
+            <h1 class="d-block mb-4 mt-5 pt-4 text-center title">What's cooking?</h1>
+          </b-col>
+        </b-row>
+        <b-row align-h="center">
+          <b-col class="ml-md-n5" cols="auto">
+            <p class="font-italic">
+              "Find meal inspiration and delicious recipes from all around the world right here!"
+            </p>
+          </b-col>
+        </b-row>
+        <b-row align-h="center" class="my-3">
+          <b-col cols="auto">
+            <b-img alt="several types of vegetables" fluid rounded src="@/assets/images/vegetables-700.jpg" />
+          </b-col>
+        </b-row>
 
       </b-container>
       
