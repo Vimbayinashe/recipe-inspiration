@@ -10,7 +10,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/jpg', href: '/spaghetti-thumbnail.jpg' }],
+    link: [{ rel: 'icon', type: 'image/jpg', href: '/vegetables-thumbnail.jpg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
