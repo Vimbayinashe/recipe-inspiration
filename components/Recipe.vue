@@ -89,7 +89,7 @@
         <h4>Watch recipe:</h4>
         <b-embed 
           allowfullscreen 
-          :src="recipe.strYoutube" 
+          :src="youtube" 
           type="iframe"
         />
       </b-col>
@@ -105,6 +105,12 @@
 
 <script>
 export default {
+  computed: {
+    youtube() {
+      console.log(this.recipe.strYoutube.replace("watch", "embed"));
+      return (this.recipe.strYoutube.replace("watch", "embed")).replace("?v=", "/")
+    }
+  },
   props: {
     recipe: {
       required: true,
