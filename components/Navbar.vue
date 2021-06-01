@@ -18,56 +18,66 @@
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Dinner">
             <b-dropdown-item 
-              @click="openCategory(option, 'food')"
               :key="option" 
-              href="#" 
+              :to="{
+                path: `/category/${option.toLowerCase()}`,
+                query: { type: 'food' }
+              }" 
               v-for="option in dinner"
             >
-              {{ option }}
+                {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Other Meals">
             <b-dropdown-item 
-              @click="openCategory(option, 'food')"
               :key="option" 
-              href="#" 
+              :to="{
+                path: `/category/${option.toLowerCase()}`,
+                query: { type: 'food' }
+              }" 
               v-for="option in otherMeals"
             >
-              {{ option }}
+                {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="Asian">
             <b-dropdown-item 
-              @click="openCategory(option, 'area')"
               :key="option" 
-              href="#" 
+              :to="{
+                path: `/category/${option.toLowerCase()}`,
+                query: { type: 'area' }
+              }" 
               v-for="option in asian"
             >
-              {{ option }}
+                {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="European">
             <b-dropdown-item 
-              @click="openCategory(option, 'area')"
               :key="option" 
-              href="#" 
+              :to="{
+                path: `/category/${option.toLowerCase()}`,
+                query: { type: 'area' }
+              }" 
               v-for="option in european"
             >
-              {{ option }}
+                {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown class="mx-2 mx-md-0" text="International">
             <b-dropdown-item 
-              @click="openCategory(option, 'area')"
               :key="option" 
-              href="#" 
+              :to="{
+                  path: `/category/${option.toLowerCase()}`,
+                  query: { type: 'area' }
+                }"
               v-for="option in international"
             >
-              {{ option }}
+                {{ option }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
@@ -134,19 +144,6 @@ export default {
       ],
       otherMeals: ["Breakfast", "Dessert", "Side", "Starter"]
     }
-  },
-  methods: {
-    openCategory(category, type) {
-      console.log("open category ", category);
-      this.$router.push({
-        path: `category/${category.toLowerCase()}`,
-        query: { type }
-      })
-    }
-  },
-  props: {
-    areas: Array,
-    categories: Array
   }
 }
 </script>

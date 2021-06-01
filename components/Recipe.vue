@@ -1,13 +1,12 @@
 <template>
   <div>
-    <b-row align-h="center" class="mt-5">
+    <b-row align-h="center" class="mt-5" v-if="suggestion">
       <b-col cols="auto">
         <h3>Would you like to try {{ recipe.strMeal }}?</h3>
       </b-col>
     </b-row>
     <b-row align-h="center">
       <b-col cols="auto">
-        <!-- restrict image size -->
         <b-img :alt="'a picture of ' + recipe.strMeal" fluid :src="recipe.strMealThumb" />
       </b-col>
     </b-row>
@@ -81,7 +80,7 @@
     <b-row class="mt-2">
       <b-col>
         <h4>Instructions</h4>
-        <p>{{ recipe.strInstructions }}</p>
+        <p class="instructions">{{ recipe.strInstructions }}</p>
       </b-col>
     </b-row>
 
@@ -90,12 +89,12 @@
         <h4>Watch recipe:</h4>
         <b-embed 
           allowfullscreen 
-          :src="recipe.strYoutube" 
+          :src="youtube" 
           type="iframe"
         />
       </b-col>
     </b-row>
-    <b-row class="mt-3">
+    <b-row class="mt-4 mb-5 pb-5">
       <b-col>
         <span class="h5">Source: </span>
         <a :href="recipe.strSource">{{ recipe.strSource }}</a>
@@ -106,8 +105,26 @@
 
 <script>
 export default {
+  computed: {
+    youtube() {
+      return (this.recipe.strYoutube.replace("watch", "embed")).replace("?v=", "/")
+    }
+  },
   props: {
-    recipe: Object
+    recipe: {
+      required: true,
+      type: Object
+    },
+    suggestion: {
+      default: false,
+      type: Boolean
+    }
   }
 }
 </script>
+
+<style scoped>
+  .instructions {
+    white-space: pre-line;
+  }
+</style>

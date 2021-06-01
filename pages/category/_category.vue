@@ -12,7 +12,7 @@
           style="width: 18em;"
         >
           <b-card-title>
-            <NuxtLink :to="`/recipe/${meal.idMeal}`">
+            <NuxtLink :to="`/recipes/${meal.idMeal}`">
               {{ meal.strMeal }}
             </NuxtLink>
           </b-card-title>
@@ -31,8 +31,7 @@ export default {
   },
   data() {
     return {
-      category: '',
-      categoryType: ''
+      category: ''
     }
   },
   async fetch(){
@@ -43,8 +42,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.query.type);
-    this.categoryType = this.$route.query.type === "food" ? "c" : "a"
     this.$fetch()
   }
 }
