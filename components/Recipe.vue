@@ -1,13 +1,12 @@
 <template>
   <div>
-    <b-row align-h="center" class="mt-5">
+    <b-row align-h="center" class="mt-5" v-if="suggestion">
       <b-col cols="auto">
         <h3>Would you like to try {{ recipe.strMeal }}?</h3>
       </b-col>
     </b-row>
     <b-row align-h="center">
       <b-col cols="auto">
-        <!-- restrict image size -->
         <b-img :alt="'a picture of ' + recipe.strMeal" fluid :src="recipe.strMealThumb" />
       </b-col>
     </b-row>
@@ -107,7 +106,14 @@
 <script>
 export default {
   props: {
-    recipe: Object
+    recipe: {
+      required: true,
+      type: Object
+    },
+    suggestion: {
+      default: false,
+      type: Boolean
+    }
   }
 }
 </script>

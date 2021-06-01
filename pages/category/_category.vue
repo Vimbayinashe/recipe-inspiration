@@ -12,7 +12,7 @@
           style="width: 18em;"
         >
           <b-card-title>
-            <NuxtLink :to="`/recipe/${meal.idMeal}`">
+            <NuxtLink :to="`/recipes/${meal.idMeal}`">
               {{ meal.strMeal }}
             </NuxtLink>
           </b-card-title>

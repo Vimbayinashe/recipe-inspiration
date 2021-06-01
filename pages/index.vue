@@ -20,7 +20,7 @@
             <b-img alt="several types of vegetables" fluid rounded src="@/assets/images/vegetables-700.jpg" />
           </b-col>
         </b-row>
-        <Recipe :recipe="random" />
+        <Recipe :recipe="random" suggestion />
         
       </b-container>     
     </div>
