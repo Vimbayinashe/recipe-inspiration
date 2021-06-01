@@ -31,10 +31,10 @@
 import Recipe from '@/components/Recipe'
 export default {
   async asyncData({ $axios }) {
-    const allIngredients = await $axios.$get('/list.php?i=list')
-    const areas = await $axios.$get('/list.php?a=list')
-    const categories = await $axios.$get('/categories.php')
-    const random = await $axios.$get('/random.php')
+    const allIngredients = await $axios.$get('/api/list.php?i=list')
+    const areas = await $axios.$get('/api/list.php?a=list')
+    const categories = await $axios.$get('/api/categories.php')
+    const random = await $axios.$get('/api/random.php')
 
     return {
       allIngredients: allIngredients.meals,
