@@ -23,7 +23,7 @@ export default {
     }
   },
   async fetch() {
-    this.recipe = await this.$axios.$get(`/lookup.php?i=${this.$route.params.id}`)
+    this.recipe = await this.$axios.$get(`/api/lookup.php?i=${this.$route.params.id}`)
   },
   mounted() {
     this.$fetch()

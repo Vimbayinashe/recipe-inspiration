@@ -36,9 +36,9 @@ export default {
   },
   async fetch(){
     if(this.$route.query.type === "food") {
-      this.category = await this.$axios.$get(`/filter.php?c=${this.$route.params.category}`)
+      this.category = await this.$axios.$get(`/api/filter.php?c=${this.$route.params.category}`)
     } else if (this.$route.query.type === "area") {
-      this.category = await this.$axios.$get(`/filter.php?a=${this.$route.params.category}`)
+      this.category = await this.$axios.$get(`/api/filter.php?a=${this.$route.params.category}`)
     }
   },
   mounted() {

@@ -32,6 +32,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     'bootstrap-vue/nuxt',
   ],
 
@@ -42,7 +43,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://www.themealdb.com/api/json/v1/1',
+    proxy: true
   },
 
   publicRuntimeConfig: {
@@ -55,6 +56,13 @@ export default {
     axios: {
       baseURL: process.env.BASE_URL,
     },
+  },
+
+  proxy: {
+    '/api': { 
+      target: 'https://www.themealdb.com/api/json/v1/1',
+      pathRewrite: { '^/api/': '' }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
