@@ -80,7 +80,7 @@
     <b-row class="mt-2">
       <b-col>
         <h4>Instructions</h4>
-        <p>{{ recipe.strInstructions }}</p>
+        <p class="instructions">{{ recipe.strInstructions }}</p>
       </b-col>
     </b-row>
 
@@ -94,7 +94,7 @@
         />
       </b-col>
     </b-row>
-    <b-row class="mt-3">
+    <b-row class="mt-4 mb-5 pb-5">
       <b-col>
         <span class="h5">Source: </span>
         <a :href="recipe.strSource">{{ recipe.strSource }}</a>
@@ -117,3 +117,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .instructions {
+    white-space: pre-line;
+  }
+</style>
