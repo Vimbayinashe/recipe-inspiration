@@ -24,7 +24,6 @@ export default {
   },
   async fetch() {
     this.recipe = await this.$axios.$get(`/lookup.php?i=${this.$route.params.id}`)
-    console.log(this.recipe)
   },
   mounted() {
     this.$fetch()

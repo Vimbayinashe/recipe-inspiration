@@ -107,7 +107,6 @@
 export default {
   computed: {
     youtube() {
-      console.log(this.recipe.strYoutube.replace("watch", "embed"));
       return (this.recipe.strYoutube.replace("watch", "embed")).replace("?v=", "/")
     }
   },
