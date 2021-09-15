@@ -11,7 +11,7 @@
       </b-col>
     </b-row>
     <b-row class="mt-4">
-      <b-col cols="6" offset-md="3">
+      <b-col cols="12" sm="6" offset-md="3">
         <h4>Ingredients</h4>
         <ol>
           <li v-if="recipe.strMeasure1 && recipe.strIngredient1">
